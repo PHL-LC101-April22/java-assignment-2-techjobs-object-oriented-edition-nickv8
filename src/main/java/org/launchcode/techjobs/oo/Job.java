@@ -25,23 +25,17 @@ public class Job {
         nextId++;
     }
 
-
-
-
     public Job(String name, Employer employer, Location location, PositionType positionType, CoreCompetency coreCompetency){
-        this.id = nextId;
+        this();
         this.name = name;
         this.employer = employer;
         this.location = location;
         this.positionType = positionType;
         this.coreCompetency = coreCompetency;
-        nextId++;
     }
 
 @Override
     public String toString() {
-
-
         if (name == "") {
             this.name = "Data not available";
         }
@@ -72,13 +66,14 @@ public class Job {
         if (this == o) return true;
         if (!(o instanceof Job)) return false;
         Job job = (Job) o;
-        return id == job.id && Objects.equals(name, job.name) && Objects.equals(employer, job.employer) && Objects.equals(location, job.location) && Objects.equals(positionType, job.positionType) && Objects.equals(coreCompetency, job.coreCompetency);
+        return getId() == job.getId();
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, employer, location, positionType, coreCompetency);
+        return Objects.hash(getId());
     }
+
 
     // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
     //  and id.
@@ -87,14 +82,6 @@ public class Job {
         return id;
     }
 
-
-    public static int getNextId() {
-        return nextId;
-    }
-
-    public static void setNextId(int nextId) {
-        Job.nextId = nextId;
-    }
 
     public String getName() {
         return name;
