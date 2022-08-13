@@ -5,9 +5,10 @@ import java.util.Objects;
 public abstract class JobField {
 
     //fields
+    private String value;
    private int id;
 
-   private int nextId = 1;
+   private static int nextId = 1;
 
 
     //constructors
@@ -17,8 +18,26 @@ public abstract class JobField {
         nextId++;
     }
 
+    public JobField(String aValue){
+        this();
+        this.value = aValue;
+    }
+
+
+
 
     //getters and setters
+
+
+    public String getValue() {
+        return value;
+    }
+
+    public String setValue(String value) {
+        this.value = value;
+        return value;
+    }
+
     public int getId() {
         return id;
     }
